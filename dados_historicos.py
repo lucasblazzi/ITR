@@ -32,14 +32,18 @@ def main():
         ano = input("Ano: ")
         demon = input("Demonstrativo: ")
 
-        if (demon == 'dr'):                     # tUgYN4_k8zKU eh o token do projeto para DR
-            demonstrativo('tUgYN4_k8zKU',);
-#        elif (demon == 'bpa' or demon = 'BPA'):
-#        elif (demon == 'bpp' or demon = 'BPP'):
-#        else:
-#            print('Demonstrativo nao encontrado.')
-#            print('Digite: DR para Demonstracao dos Resultados')
-#            print('Digite: BPA para Balanco Patrimonial Ativo')
-#            print('Digite: BPP para Balanco Patrimonial Passivo')
-#            continue;
+        if (demon == 'dr'):                                                     # tUgYN4_k8zKU = token do projeto DR
+            demonstrativo('tUgYN4_k8zKU')
+        elif (demon == 'bpa' or demon == 'BPA'):                                 # tStJKRY4WWN_ = token do projeto BPA
+            demonstrativo('tStJKRY4WWN_')
+        elif (demon == 'bpp' or demon == 'BPP'):                                 # t3fX3x4OODkW = token do projeto BPP
+            demonstrativo('t3fX3x4OODkW')
+        elif(demon == 'sair'):
+            break;
+        else:
+            print('Demonstrativo nao encontrado...')
+            print('Digite: DR para Demonstracao dos Resultados')
+            print('Digite: BPA para Balanco Patrimonial Ativo')
+            print('Digite: BPP para Balanco Patrimonial Passivo')
+            continue;
 main()
