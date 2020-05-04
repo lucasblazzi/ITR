@@ -1,0 +1,322 @@
+{
+ "Empresa": "EMBRAER S.A.",
+ "Titulo": "DFs Consolidadas / Demonstração do Resultado - (Reais Mil)",
+ "Header": [
+  {
+   "name": "Conta"
+  },
+  {
+   "name": "Descrição"
+  },
+  {
+   "name": "01/07/2019\na\n30/09/2019"
+  },
+  {
+   "name": "01/01/2019\na\n30/09/2019"
+  },
+  {
+   "name": "01/07/2018\na\n30/09/2018"
+  },
+  {
+   "name": "01/01/2018\na\n30/09/2018"
+  }
+ ],
+ "Contas": [
+  {
+   "name": "3.01",
+   "Descricao": "Receita de Venda de Bens e/ou Serviços",
+   "ano1": "2.533.531",
+   "ano2": "6.333.496",
+   "ano3": "2.571.706",
+   "ano4": "5.180.920"
+  },
+  {
+   "name": "3.02",
+   "Descricao": "Custo dos Bens e/ou Serviços Vendidos",
+   "ano1": "-2.157.041",
+   "ano2": "-5.427.319",
+   "ano3": "-2.155.647",
+   "ano4": "-4.799.429"
+  },
+  {
+   "name": "3.03",
+   "Descricao": "Resultado Bruto",
+   "ano1": "376.490",
+   "ano2": "906.177",
+   "ano3": "416.059",
+   "ano4": "381.491"
+  },
+  {
+   "name": "3.04",
+   "Descricao": "Despesas/Receitas Operacionais",
+   "ano1": "-319.073",
+   "ano2": "-1.136.366",
+   "ano3": "-479.457",
+   "ano4": "-1.140.402"
+  },
+  {
+   "name": "3.04.01",
+   "Descricao": "Despesas com Vendas",
+   "ano1": "-144.930",
+   "ano2": "-432.836",
+   "ano3": "-159.077",
+   "ano4": "-388.692"
+  },
+  {
+   "name": "3.04.02",
+   "Descricao": "Despesas Gerais e Administrativas",
+   "ano1": "-99.288",
+   "ano2": "-355.235",
+   "ano3": "-145.463",
+   "ano4": "-355.546"
+  },
+  {
+   "name": "3.04.03",
+   "Descricao": "Perdas pela Não Recuperabilidade de Ativos",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.04.04",
+   "Descricao": "Outras Receitas Operacionais",
+   "ano1": "91.213",
+   "ano2": "167.408",
+   "ano3": "19.067",
+   "ano4": "128.920"
+  },
+  {
+   "name": "3.04.05",
+   "Descricao": "Outras Despesas Operacionais",
+   "ano1": "-165.972",
+   "ano2": "-515.513",
+   "ano3": "-193.951",
+   "ano4": "-524.614"
+  },
+  {
+   "name": "3.04.05.01",
+   "Descricao": "Pesquisa",
+   "ano1": "-15.086",
+   "ano2": "-45.416",
+   "ano3": "-14.591",
+   "ano4": "-41.873"
+  },
+  {
+   "name": "3.04.05.02",
+   "Descricao": "Despesas Operacionais",
+   "ano1": "-150.886",
+   "ano2": "-470.097",
+   "ano3": "-179.360",
+   "ano4": "-482.741"
+  },
+  {
+   "name": "3.04.06",
+   "Descricao": "Resultado de Equivalência Patrimonial",
+   "ano1": "-96",
+   "ano2": "-190",
+   "ano3": "-33",
+   "ano4": "-470"
+  },
+  {
+   "name": "3.05",
+   "Descricao": "Resultado Antes do Resultado Financeiro e dos Tributos",
+   "ano1": "57.417",
+   "ano2": "-230.189",
+   "ano3": "-63.398",
+   "ano4": "-758.911"
+  },
+  {
+   "name": "3.06",
+   "Descricao": "Resultado Financeiro",
+   "ano1": "90.676",
+   "ano2": "204.446",
+   "ano3": "89.095",
+   "ano4": "-10.615"
+  },
+  {
+   "name": "3.06.01",
+   "Descricao": "Receitas Financeiras",
+   "ano1": "27.399",
+   "ano2": "202.356",
+   "ano3": "3.089",
+   "ano4": "-405.095"
+  },
+  {
+   "name": "3.06.01.01",
+   "Descricao": "Variações Monetárias Ativas",
+   "ano1": "-135.896",
+   "ano2": "-104.165",
+   "ano3": "-84.227",
+   "ano4": "-574.830"
+  },
+  {
+   "name": "3.06.01.02",
+   "Descricao": "Receitas Financeiras",
+   "ano1": "163.295",
+   "ano2": "306.521",
+   "ano3": "87.316",
+   "ano4": "169.735"
+  },
+  {
+   "name": "3.06.01.03",
+   "Descricao": "Instrumentos financeiros derivativos",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.06.02",
+   "Descricao": "Despesas Financeiras",
+   "ano1": "63.277",
+   "ano2": "2.090",
+   "ano3": "86.006",
+   "ano4": "394.480"
+  },
+  {
+   "name": "3.06.02.01",
+   "Descricao": "Variações Monetárias Passivas",
+   "ano1": "95.849",
+   "ano2": "80.021",
+   "ano3": "98.285",
+   "ano4": "532.400"
+  },
+  {
+   "name": "3.06.02.02",
+   "Descricao": "Despesas Financeiras",
+   "ano1": "-32.572",
+   "ano2": "-77.931",
+   "ano3": "-12.279",
+   "ano4": "-137.920"
+  },
+  {
+   "name": "3.07",
+   "Descricao": "Resultado Antes dos Tributos sobre o Lucro",
+   "ano1": "148.093",
+   "ano2": "-25.743",
+   "ano3": "25.697",
+   "ano4": "-769.526"
+  },
+  {
+   "name": "3.08",
+   "Descricao": "Imposto de Renda e Contribuição Social sobre o Lucro",
+   "ano1": "-150.679",
+   "ano2": "-65.972",
+   "ano3": "-50.937",
+   "ano4": "-130.414"
+  },
+  {
+   "name": "3.08.01",
+   "Descricao": "Corrente",
+   "ano1": "-34.567",
+   "ano2": "-103.224",
+   "ano3": "-70.215",
+   "ano4": "-102.413"
+  },
+  {
+   "name": "3.08.02",
+   "Descricao": "Diferido",
+   "ano1": "-116.112",
+   "ano2": "37.252",
+   "ano3": "19.278",
+   "ano4": "-28.001"
+  },
+  {
+   "name": "3.09",
+   "Descricao": "Resultado Líquido das Operações Continuadas",
+   "ano1": "-2.586",
+   "ano2": "-91.715",
+   "ano3": "-25.240",
+   "ano4": "-899.940"
+  },
+  {
+   "name": "3.10",
+   "Descricao": "Resultado Líquido de Operações Descontinuadas",
+   "ano1": "-304.120",
+   "ano2": "-337.012",
+   "ano3": "-19.585",
+   "ano4": "253.181"
+  },
+  {
+   "name": "3.10.01",
+   "Descricao": "Lucro/Prejuízo Líquido das Operações Descontinuadas",
+   "ano1": "-304.120",
+   "ano2": "-337.012",
+   "ano3": "-19.585",
+   "ano4": "253.181"
+  },
+  {
+   "name": "3.10.02",
+   "Descricao": "Ganhos/Perdas Líquidas sobre Ativos de Operações Descontinuadas",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.11",
+   "Descricao": "Lucro/Prejuízo Consolidado do Período",
+   "ano1": "-306.706",
+   "ano2": "-428.727",
+   "ano3": "-44.825",
+   "ano4": "-646.759"
+  },
+  {
+   "name": "3.11.01",
+   "Descricao": "Atribuído a Sócios da Empresa Controladora",
+   "ano1": "-314.480",
+   "ano2": "-449.155",
+   "ano3": "-52.280",
+   "ano4": "-667.595"
+  },
+  {
+   "name": "3.11.02",
+   "Descricao": "Atribuído a Sócios Não Controladores",
+   "ano1": "7.774",
+   "ano2": "20.428",
+   "ano3": "7.455",
+   "ano4": "20.836"
+  },
+  {
+   "name": "3.99",
+   "Descricao": "Lucro por Ação - (Reais / Ação)",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.99.01",
+   "Descricao": "Lucro Básico por Ação",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.99.01.01",
+   "Descricao": "ON",
+   "ano1": "-0,42739",
+   "ano2": "-0,61041",
+   "ano3": "-0,07125",
+   "ano4": "-0,90978"
+  },
+  {
+   "name": "3.99.02",
+   "Descricao": "Lucro Diluído por Ação",
+   "ano1": "",
+   "ano2": "",
+   "ano3": "",
+   "ano4": ""
+  },
+  {
+   "name": "3.99.02.01",
+   "Descricao": "ON",
+   "ano1": "-0,42739",
+   "ano2": "-0,61041",
+   "ano3": "-0,07125",
+   "ano4": "-0,90978"
+  }
+ ]
+}
