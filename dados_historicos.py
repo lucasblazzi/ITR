@@ -5,9 +5,8 @@ import time
 
 def busca_doc(ticker, ano):         #ATRIBUI O NUMERO SEQUENCIAL DOCUMENTO PARA CONSULTA B --> VALORES TESTE
     doc = 666
-    print(ticker)
     ano = int(ano)
-    if ticker == "MGLU3":
+    if ticker == 'MGLU3':
         if ano == 2019:
             doc = 88872
         elif ano == 2017:
@@ -59,7 +58,7 @@ def busca_doc(ticker, ano):         #ATRIBUI O NUMERO SEQUENCIAL DOCUMENTO PARA 
 
 
 def escreve_arquivo(ticker,ano,demon,dados):
-    f = (open(ticker+'_'+ano+'_'+demon+'.json', "x"))
+    f = (open(ticker+'_'+ano+'_'+demon+'.csv', "x"))
     f.write(dados)
     return True
 
@@ -72,17 +71,20 @@ def demonstrativo(token, doc):                                                  
       "start_url": "https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento="+doc+"&CodigoTipoInstituicao=2",
     }
     r = requests.post('https://www.parsehub.com/api/v2/projects/'+token+'/run', data=params)
-    print(r.text)
+    #print(r.text)
+    run_token = str(r.text[15:27])
     print()
     print("Importando os dados...")
-    time.sleep(3)
+    print("(Aproximadamente 20 segundos)")
+    time.sleep(20)
 
 
     params = {                                                                  #Request para pegar raw data do projeto iniciado anteriormente
       "api_key": "t14QhaR-0UJq",
-      "format": "json",
+      "format": "csv",
     }
-    demo = requests.get('https://www.parsehub.com/api/v2/projects/'+token+'/last_ready_run/data', params=params)
+    demo = requests.get('https://www.parsehub.com/api/v2/runs/'+run_token+'/data', params=params)
+    #print('https://www.parsehub.com/api/v2/runs/'+run_token+'/data')
     print(demo.text)
     dados = demo.text
     return dados
@@ -94,13 +96,14 @@ def main():
     print("--------------------------------------------------------------------")
     print("                     RELATORIOS HISTORICOS B3"                       )
     print("--------------------------------------------------------------------")
+    print("Disponiveis: MGLU3 - EMBR3 - CVCB3 - LREN3 - OIBR4 - CGAS5")
     print()
 
     while True:
         ticker = input("Ticker: ")
         ano = input("Ano: ")
         demon = input("Demonstrativo: ")
-        if (demon == 'dr' or demon == 'DR'):                                                     # tUgYN4_k8zKU = token do projeto DR
+        if demon == 'dr' or demon == 'DR':                                                     # tUgYN4_k8zKU = token do projeto DR
             doc = busca_doc(ticker, ano)
             dados = demonstrativo('tUgYN4_k8zKU', doc)
             aux = escreve_arquivo(ticker,ano,demon,dados)
@@ -109,7 +112,7 @@ def main():
             else:
                 print('Problema ao gerar arquivo!!!')
 
-        elif (demon == 'bpa' or demon == 'BPA'):                                 # tStJKRY4WWN_ = token do projeto BPA
+        elif demon == 'bpa' or demon == 'BPA':                                 # tStJKRY4WWN_ = token do projeto BPA
             doc = busca_doc(ticker, ano)
             dados = demonstrativo('tStJKRY4WWN_', doc)
             aux = escreve_arquivo(ticker,ano,demon,dados)
@@ -118,16 +121,16 @@ def main():
             else:
                 print('Problema ao gerar arquivo!!!')
 
-        elif (demon == 'bpp' or demon == 'BPP'):                                 # t3fX3x4OODkW = token do projeto BPP
+        elif demon == 'bpp' or demon == 'BPP':                                 # t3fX3x4OODkW = token do projeto BPP
             doc = busca_doc(ticker, ano)
             dados = demonstrativo('t3fX3x4OODkW', doc)
             aux = escreve_arquivo(ticker,ano,demon,dados)
             if aux == True:
-                print('Arquivo '+ticker+'_'+ano+'_'+demon+' gerado com sucesso!!!')
+                print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
             else:
                 print('Problema ao gerar arquivo!!!')
 
-        elif(demon == 'sair'):
+        elif demon == 'sair':
             break;
         else:
             print('Demonstrativo nao encontrado...')
