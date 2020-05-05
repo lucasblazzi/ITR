@@ -7,7 +7,8 @@
  requests  -> pip install requests
  time      -> pip install time
 
- [ParseHub] (https://www.parsehub.com/)
+ [ParseHub](https://www.parsehub.com/)
+
 
 ### Passo a Passo
   1- Criar conta no ParseHub (fazer download da aplicação ou utilizar a versão online).
