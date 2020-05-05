@@ -76,7 +76,7 @@ def demonstrativo(token, doc):                                                  
     print()
     print("Importando os dados...")
     print("(Aproximadamente 20 segundos)")
-    time.sleep(20)
+    time.sleep(30)
 
 
     params = {                                                                  #Request para pegar raw data do projeto iniciado anteriormente
