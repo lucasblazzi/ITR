@@ -147,6 +147,15 @@ def modo1():                                                                    
             else:
                     print('Problema ao gerar arquivo!!!')
 
+        elif demon == 'dfc' or demon == 'DFC':
+            doc = busca_doc(ticker, ano)
+            dados = demonstrativo('tD1m6nCLOBRu', doc)                          # tD1m6nCLOBRu = token do projeto DFC
+            aux = escreve_arquivo(ticker,ano,demon,dados)
+            if aux == True:
+                print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
+            else:
+                    print('Problema ao gerar arquivo!!!')
+
         elif demon == 'sair':
             break;
 
@@ -177,6 +186,10 @@ def modo2(ticker):
         aux = escreve_arquivo(ticker,ano,'BPP',dados)
         print('Arquivo '+ticker+'_'+ano+'_'+'BPP'+'.csv'' gerado com sucesso!!!')
 
+        doc = busca_doc(ticker, ano)
+        dados = demonstrativo('tD1m6nCLOBRu', doc)                          # tD1m6nCLOBRu = token do projeto DFC
+        aux = escreve_arquivo(ticker,ano,'DFC',dados)
+        print('Arquivo '+ticker+'_'+ano+'_'+'BPP'+'.csv'' gerado com sucesso!!!')
 
 def main():
 
