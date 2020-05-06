@@ -85,10 +85,10 @@ def modo2(ticker):
     ano = 2015
     for ano in range(2015, 2020, 2):
         ano = str(ano)
-        body(ticker, ano, demon, 'tUgYN4_k8zKU')        #gera DR
-        body(ticker, ano, demon, 'tStJKRY4WWN_')        #gera BPA
-        body(ticker, ano, demon, 't3fX3x4OODkW')        #gera BPP
-        body(ticker, ano, demon, 'tD1m6nCLOBRu')        #gera DFC
+        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')        #gera DR
+        body(ticker, ano, 'BPA', 'tStJKRY4WWN_')        #gera BPA
+        body(ticker, ano, 'BPP', 't3fX3x4OODkW')        #gera BPP
+        body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')        #gera DFC
 
 
 
