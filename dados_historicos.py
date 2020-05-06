@@ -98,6 +98,15 @@ def modo2(ticker):
         body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')        #gera DFC
 
 
+def modo3(ticker):
+    ano = 2015
+    for ano in range(2015, 2020, 1):
+        ano = str(ano)
+        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')        #gera DR
+        body(ticker, ano, 'BPA', 'tStJKRY4WWN_')        #gera BPA
+        body(ticker, ano, 'BPP', 't3fX3x4OODkW')        #gera BPP
+        body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')        #gera DFC
+
 
 def main():
 
@@ -107,8 +116,9 @@ def main():
     print()
     while True:
         print('1- Demonstrativo em um periodo')
-        print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC --> 6 anos)')
-        print('3- Lista das empresas disponíveis para consulta')
+        print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015,2017,2019))')
+        print('3- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015-2019))')
+        print('4- Lista das empresas disponíveis para consulta')
         print()
         modo = int(input('Opção:'))
         print()
@@ -127,10 +137,18 @@ def main():
             exit()
 
         elif modo == 3:
+            ticker = input('Ticker:')
+            modo3(ticker)
+            print("Todos os demonstrativos foram baixados!!!")
+            print("Encerrando o programa...")
+            exit()
+
+        elif modo == 4:
             disponiveis()
             print('\n\n')
         else:
             print('Opção Invalida')
             exit()
 
+    print("---------------------------------------------------------------------------------")
 main()
