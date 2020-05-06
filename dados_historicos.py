@@ -2,10 +2,11 @@ import requests
 import time
 import sys
 from base_doc import busca_doc
+from base_doc import disponiveis
 
 
 
-def animation():                                                                #funcao encontrada pronta
+def animation():                                                                #funcao pronta stackoverflow
     print("Buscando arquivo:")
     #animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
     animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
@@ -24,30 +25,30 @@ def escreve_arquivo(ticker,ano,demon,dados):                                    
 
 
 
-def demonstrativo(token, doc):                                                  #Request para iniciar o projeto
-    doc = str(doc)
+def demonstrativo(token, doc):                                                  #Funcao para iniciar o projeto
+    doc = str(doc)                                                              #Faz um POST Request para a api do ParseHub conforme a documentacao oferecida pelo site
     params = {
       "api_key": "t14QhaR-0UJq",
       "start_url": "https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento="+doc+"&CodigoTipoInstituicao=2",
     }
     r = requests.post('https://www.parsehub.com/api/v2/projects/'+token+'/run', data=params)
     #print(r.text)
-    run_token = str(r.text[15:27])
+    run_token = str(r.text[15:27])                                              #salva o token do processo gerado ao executar o projeto
     print()
     print("Importando os dados...")
-    print("(Aproximadamente 20 segundos)")
+    print("(Aproximadamente 30 segundos)")
+    print()
     animation()
     #time.sleep(30)
 
 
 
-    params = {                                                                  #Request para pegar raw data do projeto iniciado anteriormente
-      "api_key": "t14QhaR-0UJq",
+    params = {                                                                  #GET Request para pegar raw data do projeto iniciado anteriormente
+      "api_key": "t14QhaR-0UJq",                                                #passa o token gerado anteriormente como parametro para buscar os dados gerados pela execucao do processo anterior
       "format": "csv",
     }
     demo = requests.get('https://www.parsehub.com/api/v2/runs/'+run_token+'/data', params=params)
-    #print('https://www.parsehub.com/api/v2/runs/'+run_token+'/data')
-    print(demo.text)
+    #print(demo.text)
     dados = demo.text
     return dados
 
@@ -83,7 +84,6 @@ def modo1(ticker, ano, demon):                                                  
         print('Digite: BPA para Balanco Patrimonial Ativo')
         print('Digite: BPP para Balanco Patrimonial Passivo')
         print('Digite: DFC para Demonstração de Fluxos de Caixa')
-        print('Digite: sair para encerrar o programa')
         return
 
 
@@ -104,24 +104,33 @@ def main():
     print("---------------------------------------------------------------------------------")
     print("                            RELATORIOS HISTORICOS B3"                             )
     print("---------------------------------------------------------------------------------")
-    print("Disponiveis: MGLU3 - EMBR3 - CVCB3 - LREN3 - OIBR4 - CGAS5 - VVAR3 - WHRL3/WHRL4")
     print()
-    print('1- Demonstrativo em um periodo')
-    print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC --> 6 anos)')
-    modo = int(input('Opção:'))
-    if modo == 1:
-        while True:
-            ticker = input("Ticker: ")
-            ano = input("Ano: ")
-            demon = input("Demonstrativo: ")
-            modo1(ticker,ano,demon)
+    while True:
+        print('1- Demonstrativo em um periodo')
+        print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC --> 6 anos)')
+        print('3- Lista das empresas disponíveis para consulta')
+        print()
+        modo = int(input('Opção:'))
+        print()
+        if modo == 1:
+            while True:
+                ticker = input("Ticker: ")
+                ano = input("Ano: ")
+                demon = input("Demonstrativo: ")
+                modo1(ticker,ano,demon)
 
-    elif modo == 2:
-        ticker = input('Ticker:')
-        modo2(ticker)
+        elif modo == 2:
+            ticker = input('Ticker:')
+            modo2(ticker)
+            print("Todos os demonstrativos foram baixados!!!")
+            print("Encerrando o programa...")
+            exit()
 
-    else:
-        print('Opção Invalida')
-        exit()
+        elif modo == 3:
+            disponiveis()
+            print('\n\n')
+        else:
+            print('Opção Invalida')
+            exit()
 
 main()

@@ -1,4 +1,4 @@
-def busca_doc(ticker, ano):                                                     #ATRIBUI O NUMERO SEQUENCIAL DOCUMENTO PARA CONSULTA B --> VALORES TESTE
+def busca_doc(ticker, ano):                                                     #ATRIBUI O NUMERO SEQUENCIAL DOCUMENTO PARA CONSULTA B3 --> VALORES TESTE
     doc = 666
     ano = int(ano)
     if ticker == 'MGLU3':                                                       #os documentos sao organizados pela b3 a partir do parametro - NumeroSequencialDocumento - variando conforme o periodo requisitado
@@ -64,4 +64,19 @@ def busca_doc(ticker, ano):                                                     
             doc = 69534
         elif ano == 2015:
             doc = 51335
+
+    else:
+        print("Dado não encontrado na base de dados")
+        exit()
     return doc
+
+
+def disponiveis():
+    print('* MGLU3 - MAGAZINE LUIZA S.A.')
+    print('* EMBR3 - EMBRAER S.A.')
+    print('* CVCB3 - CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS S.A.')
+    print('* LREN3 - LOJAS RENNER S.A.')
+    print('* OIBR4 - OI S.A.')
+    print('* CGAS5 - CIA GAS DE SAO PAULO - COMGAS')
+    print('* VVAR3 - VIA VAREJO S.A.')
+    print('* WHRL3 - WHIRLPOOL S.A.')

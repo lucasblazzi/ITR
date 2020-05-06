@@ -27,7 +27,7 @@
       2. DR_B3_Blazzi - Formata os arquivos de Demonstração de Resultados (DR)
   * **parsehub_projetos** - Pasta contém os projetos utilizados na aplicação do ParseHub, esses projetos precisaram ser importados para sua conta parsehub
   * **base_doc.py** - Dados utilizados para buscar os demonstrativos financeiros de cada empresa.
-      1. Para adicionar um novo dado basta seguir o template no arquivos
+      1. Para adicionar um novo dado basta seguir o template nos arquivos
       2. No site da b3 cada empresa em determinado ano possui uma variavel chamada NumeroSequencialDocumento que pode ser encontrada na URL do demonstrativo
   * **dados_historicos.py** - Programa principal - pode ser executado no cmd/terminal > python dados_historicos.py
 
