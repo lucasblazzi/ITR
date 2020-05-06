@@ -22,7 +22,7 @@
 
 
 ### Arquivos do diretório
-  * **VBA Excel** - Essa pasta contem os códigos raw para utilizção no excel
+  * **Macros Excel** - Essa pasta contem os códigos raw para utilizção no excel
       1. BP_B3_Blazzi - Formata os arquivos de Balanço Patrimonial (BPA e BPP)
       2. DR_B3_Blazzi - Formata os arquivos de Demonstração de Resultados (DR)
   * **parsehub_projetos** - Pasta contém os projetos utilizados na aplicação do ParseHub, esses projetos precisaram ser importados para sua conta parsehub
