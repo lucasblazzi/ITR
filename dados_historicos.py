@@ -3,6 +3,8 @@ import time
 import sys
 from base_doc import busca_doc
 
+
+
 def animation():                                                                #funcao encontrada pronta
     print("Buscando arquivo:")
     #animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
@@ -14,10 +16,12 @@ def animation():                                                                
     print("\n")
 
 
+
 def escreve_arquivo(ticker,ano,demon,dados):                                    #salva a saida de dados no arquivo csv com nome ticker_ano_demon.csv
     f = (open(ticker+'_'+ano+'_'+demon+'.csv', "x"))
     f.write(dados)
     return True
+
 
 
 def demonstrativo(token, doc):                                                  #Request para iniciar o projeto
@@ -34,6 +38,7 @@ def demonstrativo(token, doc):                                                  
     print("(Aproximadamente 20 segundos)")
     animation()
     #time.sleep(30)
+
 
 
     params = {                                                                  #Request para pegar raw data do projeto iniciado anteriormente
@@ -56,6 +61,7 @@ def body(ticker, ano, demon, token):
         print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
     else:
         print("Falha na cópia do arquivo!!!")
+
 
 
 def modo1(ticker, ano, demon):                                                                    #Busca de um relatorio a partir de ticker + ano + demonstrativo
@@ -81,6 +87,7 @@ def modo1(ticker, ano, demon):                                                  
         return
 
 
+
 def modo2(ticker):
     ano = 2015
     for ano in range(2015, 2020, 2):
@@ -99,8 +106,6 @@ def main():
     print("---------------------------------------------------------------------------------")
     print("Disponiveis: MGLU3 - EMBR3 - CVCB3 - LREN3 - OIBR4 - CGAS5 - VVAR3 - WHRL3/WHRL4")
     print()
-
-
     print('1- Demonstrativo em um periodo')
     print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC --> 6 anos)')
     modo = int(input('Opção:'))
