@@ -9,12 +9,14 @@
  * LREN3 - LOJAS RENNER S.A.
  * OIBR4 - OI S.A.
  * CGAS5 - CIA GAS DE SAO PAULO - COMGAS
-
+ * VVAR3 - VIA VAREJO S.A.
+ * WHRL3 - WHIRLPOOL S.A.
 
 ### Requirements
- Python 3.x
- requests  -> pip install requests
- time      -> pip install time
+ * Python 3.x
+ * requests  	-> pip install requests
+ * time      	-> pip install time
+ * sys			-> pip install sys
 
  [ParseHub](https://www.parsehub.com/) - Utilizado para crawl dos dados AJAX
 
