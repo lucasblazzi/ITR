@@ -35,7 +35,7 @@
       1. Executar o programa a partir do cmd/terminal com o comando --> python dados_historicos.py
       2. A execução correta do programa resultará em um arquivo csv.
       3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
-      <p>![Execução do programa](GIF/execucao.gif)</p>
+      : ![Execução do programa](GIF/execucao.gif) :
   2. **Formatação Excel**
       1. O projeto acompanha macros do excel para uma formatação automática na pasta "Macros Excel"
       2. Importe as macros para seu Excel
@@ -43,4 +43,4 @@
           * BPP ou BPA: utilizar a macro BP_B3_Blazzi
           * DR: utilizar a macro DR_B3_Blazzi
           * DFC: utilizar a macro DFC_B3_Blazzi
-      <p>![Aplicação da macro](GIF/excel.gif)</p>
+      : ![Aplicação da macro](GIF/excel.gif) :
