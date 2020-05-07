@@ -14,9 +14,9 @@
 
 ### Requirements
  * Python 3.x
- * requests -> <p>pip install requests</p>
- * time -> <p>pip install time</p>
- * sys -> <p>pip install sys</p>
+ * requests -> pip install requests
+ * time -> pip install time
+ * sys -> pip install sys
 
  [ParseHub](https://www.parsehub.com/) - Utilizado para crawl dos dados AJAX
 
@@ -40,7 +40,7 @@
       4. Importar os projetos para sua conta ParseHub - os quatro projetos utilizados estão na pasta parsehub_projetos.
       5. Caso necessário, substituir os tokens do projeto no arquivo dados_historicos.py.
   2. **Execução do programa:**
-      1. Executar o programa a partir do cmd/terminal      <p># python dados_historicos.py</p>
+      1. Executar o programa a partir do cmd/terminal --> # python dados_historicos.py
       2. A execução correta do programa resultará em um arquivo csv.
       3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
   3. **Formatação Excel**
