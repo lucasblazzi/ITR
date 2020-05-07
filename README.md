@@ -25,6 +25,7 @@
   * **Macros Excel** - Essa pasta contem os códigos raw para utilizção no excel
       1. BP_B3_Blazzi - Formata os arquivos de Balanço Patrimonial (BPA e BPP)
       2. DR_B3_Blazzi - Formata os arquivos de Demonstração de Resultados (DR)
+      3. DFC_B3_Blazzi
   * **parsehub_projetos** - Pasta contém os projetos utilizados na aplicação do ParseHub, esses projetos precisaram ser importados para sua conta parsehub
   * **base_doc.py** - Dados utilizados para buscar os demonstrativos financeiros de cada empresa.
       1. Para adicionar um novo dado basta seguir o template nos arquivos
@@ -32,12 +33,20 @@
   * **dados_historicos.py** - Programa principal - pode ser executado no cmd/terminal > python dados_historicos.py
 
 ### Passo a Passo
-  1. Criar conta no ParseHub (fazer download da aplicação ou utilizar a versão online).
-  2. Após a criação da conta no ParseHub, você possuirá uma api_key.
-  3. Adicionar sua key em todas as variaveis api_key do arquivo dados_historicos.py.
-  4. Importar os projetos para sua conta ParseHub - os três projetos utilizados estão na pasta parsehub_projetos.
-  5. Caso necessário, substituir os tokens do projeto no arquivo dados_historicos.py.
-  6. O programa é executado a com a entrada do usuário em três parâmetros (ticker, ano, demonstrativo).
-  7. A execução correta do programa resultará em um arquivo csv.
-  8. O arquivo csv é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
-  9. O projeto acompanha o VBA do excel para uma formatação automática.
+1. **ParseHub:**
+      1. Criar conta no ParseHub (fazer download da aplicação ou utilizar a versão online).
+      2. Após a criação da conta no ParseHub, você possuirá uma api_key.
+      3. Adicionar sua key em todas as variaveis api_key do arquivo dados_historicos.py.
+      4. Importar os projetos para sua conta ParseHub - os quatro projetos utilizados estão na pasta parsehub_projetos.
+      5. Caso necessário, substituir os tokens do projeto no arquivo dados_historicos.py.
+  2. **Execução do programa:**
+      1. Executar o programa a partir do cmd/terminal      # python dados_historicos.py
+      2. A execução correta do programa resultará em um arquivo csv.
+      3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
+  3. **Formatação Excel**
+      1. O projeto acompanha macros do excel para uma formatação automática na pasta "Macros Excel"
+      2. Importar as macros para seu Excel
+      3. Para arquivos excel referentes ao demonstrativo:
+          * BPP ou BPA: utilizar a macro BP_B3_Blazzi
+          * DR: utilizar a macro DR_B3_Blazzi
+          * DFC: utilizar a macro DFC_B3_Blazzi
