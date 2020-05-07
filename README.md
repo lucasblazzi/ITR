@@ -39,12 +39,12 @@
           3. O programa permite a busca dos demonstrativos a partir de abreviações (ex: DR, BPA, BPP, DFC) dos anos: 2015-2019
       3. A execução correta do programa resultará em um arquivo csv.
       4. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
-      ![Execução do programa](GIF/execucao.gif)
+  ![Execução do programa](GIF/execucao.gif)
   2. **Formatação Excel**
       1. O projeto acompanha macros do excel para uma formatação automática na pasta "Macros Excel"
       2. Importe as macros para seu Excel
       3. Para arquivos excel referentes ao demonstrativo:
           * BPP ou BPA: utilizar a macro BP_B3_Blazzi
           * DR: utilizar a macro DR_B3_Blazzi
-          * DFC: utilizar a macro DFC_B3_Blazzi
-      ![Aplicação da macro](GIF/excel.gif)
+          * DFC: utilizar a macro DFC_B3_Blazzi      
+  ![Aplicação da macro](GIF/excel.gif)
