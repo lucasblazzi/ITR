@@ -50,6 +50,7 @@
           * BPP ou BPA: utilizar a macro BP_B3_Blazzi
           * DR: utilizar a macro DR_B3_Blazzi
           * DFC: utilizar a macro DFC_B3_Blazzi     
+          
   | Aplicação da macro |
   | :------: |
   ![Aplicação da macro](GIF/excel.gif)
