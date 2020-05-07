@@ -14,9 +14,9 @@
 
 ### Requirements
  * Python 3.x
- * requests  	-> pip install requests
- * time      	-> pip install time
- * sys			-> pip install sys
+ * requests -> <p>pip install requests</p>
+ * time -> <p>pip install time</p>
+ * sys -> <p>pip install sys</p>
 
  [ParseHub](https://www.parsehub.com/) - Utilizado para crawl dos dados AJAX
 
@@ -25,7 +25,7 @@
   * **Macros Excel** - Essa pasta contem os códigos raw para utilizção no excel
       1. BP_B3_Blazzi - Formata os arquivos de Balanço Patrimonial (BPA e BPP)
       2. DR_B3_Blazzi - Formata os arquivos de Demonstração de Resultados (DR)
-      3. DFC_B3_Blazzi
+      3. DFC_B3_Blazzi - Formata os arquivos de Demonstração de Fluxos de Caixa (DFC)
   * **parsehub_projetos** - Pasta contém os projetos utilizados na aplicação do ParseHub, esses projetos precisaram ser importados para sua conta parsehub
   * **base_doc.py** - Dados utilizados para buscar os demonstrativos financeiros de cada empresa.
       1. Para adicionar um novo dado basta seguir o template nos arquivos
@@ -40,7 +40,7 @@
       4. Importar os projetos para sua conta ParseHub - os quatro projetos utilizados estão na pasta parsehub_projetos.
       5. Caso necessário, substituir os tokens do projeto no arquivo dados_historicos.py.
   2. **Execução do programa:**
-      1. Executar o programa a partir do cmd/terminal      # python dados_historicos.py
+      1. Executar o programa a partir do cmd/terminal      <p># python dados_historicos.py</p>
       2. A execução correta do programa resultará em um arquivo csv.
       3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
   3. **Formatação Excel**

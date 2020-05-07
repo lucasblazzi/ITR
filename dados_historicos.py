@@ -19,9 +19,12 @@ def animation():                                                                
 
 
 def escreve_arquivo(ticker,ano,demon,dados):                                    #salva a saida de dados no arquivo csv com nome ticker_ano_demon.csv
-    f = (open(ticker+'_'+ano+'_'+demon+'.csv', "x"))
-    f.write(dados)
-    return True
+    try:
+        f = (open(ticker+'_'+ano+'_'+demon+'.csv', "x"))
+        f.write(dados)
+        return True
+    except:
+        return False
 
 
 
@@ -61,7 +64,7 @@ def body(ticker, ano, demon, token):
     if aux == True:
         print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
     else:
-        print("Falha na cópia do arquivo!!!")
+        print("Falha na cópia do arquivo!!! / Arquivo ja existente")
 
 
 
