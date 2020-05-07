@@ -3,22 +3,22 @@
  * Esse programa foi construído para a matéria SIN311 - Contabilidade em Informática (UNIFEI - Sistemas da Informação)
 
  No momento estão disponíveis os dados das empresas:
- * MGLU3 - MAGAZINE LUIZA S.A.
- * EMBR3 - EMBRAER S.A.
- * CVCB3 - CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS S.A.
- * LREN3 - LOJAS RENNER S.A.
- * OIBR4 - OI S.A.
- * CGAS5 - CIA GAS DE SAO PAULO - COMGAS
- * VVAR3 - VIA VAREJO S.A.
- * WHRL3 - WHIRLPOOL S.A.
+ * **MGLU3** - MAGAZINE LUIZA S.A.
+ * **EMBR3** - EMBRAER S.A.
+ * **CVCB3** - CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS S.A.
+ * **LREN3** - LOJAS RENNER S.A.
+ * **OIBR4** - OI S.A.
+ * **CGAS5** - CIA GAS DE SAO PAULO - COMGAS
+ * **VVAR3** - VIA VAREJO S.A.
+ * **WHRL3** - WHIRLPOOL S.A.
 
 
 ### Requirements
- * [Python 3.x](https://www.python.org/downloads/)
- * requests -> pip install requests
+ * **[Python 3.x](https://www.python.org/downloads/)**
+ * **requests -> (no cmd execute o comando: pip install requests)**
  * time -> pip install time
  * sys -> pip install sys
- * Microsoft Excel 2016
+ * **Microsoft Excel 2016**
 
 ### Arquivos do diretório
   * **Macros Excel** - Essa pasta contem os códigos raw para utilizção no excel
@@ -32,13 +32,15 @@
 
 ### Passo a Passo
   1. **Execução do programa:**
-      1. Executar o programa a partir do cmd/terminal --> # python dados_historicos.py
+      1. Executar o programa a partir do cmd/terminal com o comando --> python dados_historicos.py
       2. A execução correta do programa resultará em um arquivo csv.
       3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
+      ![Execução do programa](GIF/execucao.gif)
   2. **Formatação Excel**
       1. O projeto acompanha macros do excel para uma formatação automática na pasta "Macros Excel"
-      2. Importar as macros para seu Excel
+      2. Importe as macros para seu Excel
       3. Para arquivos excel referentes ao demonstrativo:
           * BPP ou BPA: utilizar a macro BP_B3_Blazzi
           * DR: utilizar a macro DR_B3_Blazzi
           * DFC: utilizar a macro DFC_B3_Blazzi
+      ![Aplicação da macro](GIF/excel.gif)
