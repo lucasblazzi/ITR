@@ -1,5 +1,5 @@
 ## projeto_b3 -> Dados Históricos
- * O projeto foi desenvolvido para automatização na análise de investimentos a partir de dados históricos como: Demonstração de Resultado, Balanço Patrimonial Ativo e Balanço Patrimonial Passivo.
+ * O projeto foi desenvolvido para automatização na análise de investimentos a partir de dados históricos como: Demonstração de Resultado, Balanço Patrimonial Ativo, Balanço Patrimonial Passivo e Demonstrações de Fluxo de Caixa.
  * Esse programa foi construído para a matéria SIN311 - Contabilidade em Informática (UNIFEI - Sistemas da Informação)
 
  No momento estão disponíveis os dados das empresas:
@@ -32,9 +32,13 @@
 
 ### Passo a Passo
   1. **Execução do programa:**
-      1. Executar o programa a partir do cmd/terminal com o comando --> python dados_historicos.py
-      2. A execução correta do programa resultará em um arquivo csv.
-      3. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
+      1. Navegue até o direório onde o programa foi baixado
+      2. Executar o programa a partir do cmd/terminal com o comando --> python dados_historicos.py
+          1. Os dados da empresa são disponibilizados a partir do ticker referente.
+          2. As empresas/tickers disponíveis para consulta estão listadas na Opção 4 do programa.
+          3. O programa permite a busca dos demonstrativos a partir de abreviações (ex: DR, BPA, BPP, DFC) dos anos: 2015-2019
+      3. A execução correta do programa resultará em um arquivo csv.
+      4. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
       ![Execução do programa](GIF/execucao.gif)
   2. **Formatação Excel**
       1. O projeto acompanha macros do excel para uma formatação automática na pasta "Macros Excel"
