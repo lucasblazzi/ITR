@@ -122,7 +122,7 @@ def modo4(ticker, demon):
         frames.append(column_data)
         ano = ano - 1
 
-    result = pd.concat(frames, axis=1)          #axis=1 --> concatena como coluna
+    result = pd.concat(frames, ignore_index=True, axis=1)          #axis=1 --> concatena como coluna
     result.to_csv(ticker+'_'+demon+'.csv', header=False, index=False, encoding='ANSI')
 
 
