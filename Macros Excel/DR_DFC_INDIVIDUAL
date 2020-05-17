@@ -1,100 +1,73 @@
-Sub DFC_B3_Blazzi()
+Sub DR_DFC_INDIVIDUAL()
 '
-' DFC_B3_Blazzi Macro
+' DR_DFC_INDIVIDUAL Macro
 '
-' Atalho do teclado: Ctrl+w
+
 '
+    Range("A1").Select
+    Selection.ClearContents
+    Range("A2:L117").Select
+    Selection.Cut
+    ActiveWindow.SmallScroll Down:=-15
+    Range("A7").Select
+    ActiveSheet.Paste
     Columns("A:A").Select
     Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
         TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, _
         Semicolon:=False, Comma:=True, Space:=False, Other:=False, FieldInfo _
-        :=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1), Array(5, 1), Array(6, 1), _
-        Array(7, 1)), TrailingMinusNumbers:=True
-    ActiveWindow.SmallScroll Down:=-3
-    Range("C2").Select
-    Selection.Copy
-    Range("D8").Select
-    Range("C2").Select
-    Application.CutCopyMode = False
-    Selection.Cut
-    Range("D8").Select
-    ActiveSheet.Paste
-    Range("C3").Select
-    Selection.Cut
-    Range("E8").Select
-    ActiveSheet.Paste
-    Range("C4").Select
-    Selection.Cut
-    Range("F8").Select
-    ActiveSheet.Paste
-    Range("A6").Select
-    Selection.Cut
-    Range("F9").Select
-    ActiveSheet.Paste
-    Range("C7").Select
-    Selection.Cut
-    Range("G8").Select
-    ActiveSheet.Paste
-    Range("A9").Select
-    Selection.Cut
-    Range("G9").Select
-    ActiveSheet.Paste
+        :=Array(1, 1), TrailingMinusNumbers:=True
+    Selection.ColumnWidth = 16.78
+    Columns("B:B").ColumnWidth = 61.67
+    Columns("C:C").ColumnWidth = 17.89
+    Columns("D:D").ColumnWidth = 16.78
     Range("A8").Select
     Selection.ClearContents
-    Range("A7").Select
+    Range("A10").Select
     Selection.ClearContents
-    Range("B7").Select
-    Selection.ClearContents
-    Range("A5").Select
-    Selection.ClearContents
-    Range("A4").Select
-    Selection.ClearContents
-    Range("B4").Select
-    Selection.ClearContents
-    Range("A3").Select
-    Selection.ClearContents
-    Range("B3").Select
-    Selection.ClearContents
-    Range("A1").Select
-    Selection.ClearContents
-    Range("B1").Select
-    Selection.ClearContents
-    Range("C1").Select
-    Selection.ClearContents
-    Range("D1").Select
-    Selection.ClearContents
-    Range("E1").Select
-    Selection.ClearContents
-    Range("F1").Select
-    Selection.ClearContents
-    Range("G1").Select
-    Selection.ClearContents
-    Range("A2").Select
-    Selection.Copy
-    Application.CutCopyMode = False
+    Range("A9").Select
     Selection.Cut
-    Range("A1").Select
+    Range("C8").Select
     ActiveSheet.Paste
-    Range("B2").Select
+    Range("B9").Select
     Selection.Cut
-    Range("A2").Select
+    Range("D7").Select
     ActiveSheet.Paste
-    Range("A1").Select
-    With Selection.Font
-        .Name = "Calibri"
-        .Size = 16
-        .Strikethrough = False
-        .Superscript = False
-        .Subscript = False
-        .OutlineFont = False
-        .Shadow = False
-        .Underline = xlUnderlineStyleNone
-        .ThemeColor = xlThemeColorLight1
-        .TintAndShade = 0
-        .ThemeFont = xlThemeFontMinor
+    Range("A11").Select
+    Selection.Cut
+    Range("D8").Select
+    ActiveSheet.Paste
+    Range("C8").Select
+    With Selection
+        .HorizontalAlignment = xlRight
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
     End With
-    Selection.Font.Bold = True
-    Range("A2").Select
+    Range("D8").Select
+    With Selection
+        .HorizontalAlignment = xlRight
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Range("A12:G112").Select
+    Selection.Cut
+    Range("A9").Select
+    ActiveSheet.Paste
+    Range("C5").Select
+    ActiveWindow.SmallScroll Down:=-12
+    Range("A1").Select
+    Selection.Font.Size = 12
     With Selection.Font
         .Name = "Calibri"
         .Size = 14
@@ -108,45 +81,44 @@ Sub DFC_B3_Blazzi()
         .TintAndShade = 0
         .ThemeFont = xlThemeFontMinor
     End With
-    Range("D8:G83").Select
-    Selection.Cut
-    Range("A5").Select
-    ActiveSheet.Paste
-    Range("A5").Select
-    Columns("A:A").ColumnWidth = 17.11
-    Columns("B:B").ColumnWidth = 52.89
-    ActiveWindow.SmallScroll Down:=9
-    Columns("B:B").ColumnWidth = 61.56
-    ActiveWindow.SmallScroll Down:=-12
-    Columns("C:C").ColumnWidth = 17
-    Columns("D:D").ColumnWidth = 17.11
-    Range("A5:D6").Select
-    With Selection
-        .HorizontalAlignment = xlGeneral
-        .VerticalAlignment = xlCenter
-        .WrapText = False
-        .Orientation = 0
-        .AddIndent = False
-        .IndentLevel = 0
-        .ShrinkToFit = False
-        .ReadingOrder = xlContext
-        .MergeCells = False
+    Selection.Font.Bold = True
+    ActiveCell.FormulaR1C1 = "EMPRESA:"
+    Range("A2").Select
+    With Selection.Font
+        .Name = "Calibri"
+        .Size = 12
+        .Strikethrough = False
+        .Superscript = False
+        .Subscript = False
+        .OutlineFont = False
+        .Shadow = False
+        .Underline = xlUnderlineStyleNone
+        .ThemeColor = xlThemeColorLight1
+        .TintAndShade = 0
+        .ThemeFont = xlThemeFontMinor
     End With
-    With Selection
-        .HorizontalAlignment = xlCenter
-        .VerticalAlignment = xlCenter
-        .WrapText = False
-        .Orientation = 0
-        .AddIndent = False
-        .IndentLevel = 0
-        .ShrinkToFit = False
-        .ReadingOrder = xlContext
-        .MergeCells = False
+    ActiveCell.FormulaR1C1 = "Demonstrativo:"
+    Range("A3").Select
+    With Selection.Font
+        .Name = "Calibri"
+        .Size = 12
+        .Strikethrough = False
+        .Superscript = False
+        .Subscript = False
+        .OutlineFont = False
+        .Shadow = False
+        .Underline = xlUnderlineStyleNone
+        .ThemeColor = xlThemeColorLight1
+        .TintAndShade = 0
+        .ThemeFont = xlThemeFontMinor
     End With
-    Range("E5").Select
-    ActiveWindow.SmallScroll Down:=6
+    Selection.Font.Bold = True
+    ActiveCell.FormulaR1C1 = "Ano:"
+    Range("A5").Select
+    ActiveWindow.SmallScroll Down:=-15
     
-    linha = 7
+    
+    linha = 9
     Do Until Cells(linha, 1) = ""
                   
         If Len(Cells(linha, 1).Value) > 7 Then
@@ -164,11 +136,32 @@ Sub DFC_B3_Blazzi()
         If Len(Cells(linha, 1).Value) = 7 Then
             Cells(linha, 1).Interior.Color = RGB(221, 235, 247)
         End If
-        
     linha = linha + 1
     Loop
     
-    Range("A5:D6").Select
+    Range("A7").Select
+    With Selection
+        .HorizontalAlignment = xlLeft
+        .VerticalAlignment = xlCenter
+    End With
+    
+    Range("A1").Select
+    With Selection.Font
+        .Name = "Calibri"
+        .Size = 14
+        .Bold = True
+        .Strikethrough = False
+        .Superscript = False
+        .Subscript = False
+        .OutlineFont = False
+        .Shadow = False
+        .Underline = xlUnderlineStyleNone
+        .ThemeColor = xlThemeColorLight1
+        .TintAndShade = 0
+        .ThemeFont = xlThemeFontMinor
+    End With
+    
+    Range("A7:D8").Select
     With Selection.Font
         .Name = "Calibri"
         .Size = 8
@@ -190,7 +183,7 @@ Sub DFC_B3_Blazzi()
         .TintAndShade = -0.149998474074526
         .PatternTintAndShade = 0
     End With
-    Range("A5:D6").Select
+    Range("A7:D8").Select
     With Selection.Font
         .ThemeColor = xlThemeColorDark1
         .TintAndShade = 0
