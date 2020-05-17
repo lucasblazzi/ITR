@@ -3,7 +3,7 @@ import time
 import sys
 from base_doc import busca_doc
 from base_doc import disponiveis
-
+import pandas as pd
 
 
 def animation():                                                                #funcao pronta stackoverflow
@@ -90,7 +90,6 @@ def modo1(ticker, ano, demon):                                                  
         return
 
 
-
 def modo2(ticker):
     ano = 2015
     for ano in range(2015, 2020, 2):
@@ -111,6 +110,31 @@ def modo3(ticker):
         body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')        #gera DFC
 
 
+def modo5(ticker, demon):
+    ano = 2019
+    #monta a base da tabela baseando-se na conta 2019
+    try:
+        main_df = pd.read_csv(ticker+'_'+str(ano)+'_'+demon+'.csv', encoding='ANSI', header=0)
+    except:
+        print('\nDemonstrativo não encontrado. Certifique-se de que os demonstrativos requisitados já foram baixados!\n\n')
+        return;
+    contanivel = main_df[main_df.Conta_numero.map(len)<=7]          #seleciona contas ate o terceiro nivel
+    column_data = contanivel.iloc[:, 0:3]
+    column_data = column_data.reset_index(drop=True)
+    frames = [column_data]
+
+    #concatena os demais anos ate 2014
+    while ano != 2014:
+        df = pd.read_csv(ticker+'_'+str(ano)+'_'+demon+'.csv', encoding='ANSI', header=0)
+        contanivel = df[df.Conta_numero.map(len)<=7]          #seleciona contas ate o terceiro nivel
+        column_data = contanivel.iloc[:, 3]
+        column_data = column_data.reset_index(drop=True)
+        frames.append(column_data)
+        ano = ano - 1
+
+    result = pd.concat(frames, axis=1)          #axis=1 --> concatena como coluna
+    result.to_csv(ticker+'_'+demon+'.csv', header=False, index=False, encoding='ANSI')
+
 def main():
 
     print("---------------------------------------------------------------------------------")
@@ -118,11 +142,13 @@ def main():
     print("---------------------------------------------------------------------------------")
     print()
     while True:
+        print("----------------------------- DOWNLOAD DE ARQUIVOS -----------------------------")
         print('1- Demonstrativo em um periodo')
         print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015,2017,2019))')
         print('3- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015-2019))')
+        print("-------------------------------- OUTRAS FUNCOES --------------------------------")
         print('4- Lista das empresas disponíveis para consulta')
-        print()
+        print('5- Compilar demonstrativos')
         modo = int(input('Opção:'))
         print()
         if modo == 1:
@@ -149,6 +175,12 @@ def main():
         elif modo == 4:
             disponiveis()
             print('\n\n')
+
+        elif modo == 5:
+            ticker = input('Ticker: ')
+            demon = input('Demonstrativo: ')
+            modo5(ticker, demon)
+
         else:
             print('Opção Invalida')
             exit()
