@@ -41,18 +41,18 @@
           3. O programa permite a busca dos demonstrativos a partir de abreviações (ex: DR, BPA, BPP, DFC) dos anos: 2015-2019
       3. A execução correta do programa resultará em um ou mais arquivos csv.
       4. O arquivo csv gerado é entitulado como ticker_ano_demonstrativo.csv (ex: MGLU3_2019_DR)
-    2. **Opções de Execução**
-        1. 1- Demonstrativo individual por ano
-            1. Será solicitado ticker, ano e demonstrativo
-            2. O resultado será um arquivo contendo o demonstrativo individual do período solicitado
-        2. 2- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015-2019))
-            1. Será solicitado o ticker da empresa.
-            2. O resultado será o conjunto de todos os demonstrativos individuais em todos os períodos (total de 20 arquivos)
-        3. 3- Listar empresas disponíveis para consulta
-            1. Essa opção retornará todas as empresas disponiveis para consulta
-        4. 4- Compilar demonstrativos
-              1. Após a execução da opção 2 (Conjunto de demonstrativos) será possível compilar os resultados por demonstrativo
-              2. O resultado será um arquivo unico do demonstrativo solicitado, contendo as contas até o terceiro nível de todos os anos
+  2. **Opções de Execução**
+      1. 1- Demonstrativo individual por ano
+          1. Será solicitado ticker, ano e demonstrativo
+          2. O resultado será um arquivo contendo o demonstrativo individual do período solicitado
+      2. 2- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015-2019))
+          1. Será solicitado o ticker da empresa.
+          2. O resultado será o conjunto de todos os demonstrativos individuais em todos os períodos (total de 20 arquivos)
+      3. 3- Listar empresas disponíveis para consulta
+          1. Essa opção retornará todas as empresas disponiveis para consulta
+      4. 4- Compilar demonstrativos
+          1. Após a execução da opção 2 (Conjunto de demonstrativos) será possível compilar os resultados por demonstrativo
+          2. O resultado será um arquivo unico do demonstrativo solicitado, contendo as contas até o terceiro nível de todos os anos
 
    | Execução do programa |
    | :------: |
