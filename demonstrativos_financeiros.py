@@ -3,10 +3,10 @@ import time
 import sys
 from base_doc import busca_doc
 from base_doc import disponiveis
-import pandas as pd
+from analise_demon import balanco_gerencial
 
 
-def animation():                                                                #funcao pronta stackoverflow
+def animation():                                                                #funcao pronta stackoverflow para animacao durante o download
     print("Buscando arquivo:")
     #animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
     animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
@@ -28,14 +28,13 @@ def escreve_arquivo(ticker,ano,demon,dados):                                    
 
 
 
-def demonstrativo(token, doc):                                                  #Funcao para iniciar o projeto
+def demonstrativo(token, doc):                                                  #Funcao para iniciar o projeto ParseHub
     doc = str(doc)                                                              #Faz um POST Request para a api do ParseHub conforme a documentacao oferecida pelo site
     params = {
       "api_key": "t14QhaR-0UJq",
       "start_url": "https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento="+doc+"&CodigoTipoInstituicao=2",
     }
     r = requests.post('https://www.parsehub.com/api/v2/projects/'+token+'/run', data=params)
-    #print(r.text)
     run_token = str(r.text[15:27])                                              #salva o token do processo gerado ao executar o projeto
     print()
     print("Importando os dados...")
@@ -55,8 +54,11 @@ def demonstrativo(token, doc):                                                  
 
 
 
-def body(ticker, ano, demon, token):
+def body(ticker, ano, demon, token):                #funcao base para buscar um demonstrativo e salvar em .csv
     doc = busca_doc(ticker, ano)
+    if doc == 0:
+        print('Demonstrativo nao encontrado')
+        return
     dados = demonstrativo(token, doc)
     aux = escreve_arquivo(ticker,ano,demon,dados)
     if aux == True:
@@ -66,9 +68,9 @@ def body(ticker, ano, demon, token):
 
 
 
-def modo1(ticker, ano, demon):                                                                    #Busca de um relatorio a partir de ticker + ano + demonstrativo
+def busca_demon(ticker, ano, demon):                    #Busca de um relatorio a partir de ticker + ano + demonstrativo
     if demon == 'dr' or demon == 'DR':
-        body(ticker, ano, demon, 'tUgYN4_k8zKU')        #gera DR
+        body(ticker, ano, demon, 'tUgYN4_k8zKU')        #gera DR --> passa como parametro o codigo para execucao do projeto DR (tUgYN4_k8zKU)
 
     elif demon == 'bpa' or demon == 'BPA':
         body(ticker, ano, demon, 'tStJKRY4WWN_')        #gera BPA
@@ -89,42 +91,13 @@ def modo1(ticker, ano, demon):                                                  
 
 
 
-def modo2(ticker):
-    ano = 2015
-    for ano in range(2015, 2020, 1):
+def conj_demon(ticker, ano_ini, ano_fim):                                 #Busca conjunto de demonstrativos, executando a busca individual para todos demons de 2015 a 2019
+    for ano in range(ano_ini, ano_fim+1, 1):
         ano = str(ano)
-        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')        #gera DR
-        body(ticker, ano, 'BPA', 'tStJKRY4WWN_')        #gera BPA
-        body(ticker, ano, 'BPP', 't3fX3x4OODkW')        #gera BPP
-        body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')        #gera DFC
-
-
-
-def modo4(ticker, demon):
-    ano = 2019
-    #monta a base da tabela baseando-se na conta 2019
-    try:
-        main_df = pd.read_csv(ticker+'_'+str(ano)+'_'+demon+'.csv', encoding='ANSI', header=0)
-    except:
-        print('\nDemonstrativo não encontrado. Certifique-se de que os demonstrativos requisitados já foram baixados!\n\n')
-        return;
-    contanivel = main_df[main_df.Conta_numero.map(len)<=7]          #seleciona contas ate o terceiro nivel
-    column_data = contanivel.iloc[:, 0:3]
-    column_data = column_data.reset_index(drop=True)
-    frames = [column_data]
-
-    #concatena os demais anos ate 2014
-    while ano != 2014:
-        df = pd.read_csv(ticker+'_'+str(ano)+'_'+demon+'.csv', encoding='ANSI', header=0)
-        contanivel = df[df.Conta_numero.map(len)<=7]          #seleciona contas ate o terceiro nivel
-        column_data = contanivel.iloc[:, 3]
-        column_data = column_data.reset_index(drop=True)
-        frames.append(column_data)
-        ano = ano - 1
-
-    result = pd.concat(frames, ignore_index=True, axis=1)          #axis=1 --> concatena como coluna
-    result.to_csv(ticker+'_'+demon+'.csv', header=False, index=False, encoding='ANSI')
-
+        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')
+        body(ticker, ano, 'BPA', 'tStJKRY4WWN_')
+        body(ticker, ano, 'BPP', 't3fX3x4OODkW')
+        body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')
 
 
 def main():
@@ -150,14 +123,18 @@ def main():
         print()
         if modo == 1:
             while True:
-                ticker = input("Ticker: ")
+                ticker = input("\nTicker: ")
+                if len(ticker) < 1: break
                 ano = input("Ano: ")
                 demon = input("Demonstrativo: ")
-                modo1(ticker,ano,demon)
+                busca_demon(ticker,ano,demon)
 
         elif modo == 2:
             ticker = input('Ticker:')
-            modo2(ticker)
+            print('Periodo:')
+            ano_ini = int(input('\tAno incial:'))
+            ano_fim = int(input('\tAno final:'))
+            conj_demon(ticker, ano_ini, ano_fim)
             print("Todos os demonstrativos foram baixados!!!")
             print("Encerrando o programa...")
             exit()
@@ -168,8 +145,10 @@ def main():
 
         elif modo == 4:
             ticker = input('Ticker: ')
-            demon = input('Demonstrativo: ')
-            modo4(ticker, demon)
+            print('Periodo:')
+            ano_ini = int(input('\tAno Inicial: '))
+            ano_fim = int(input('\tAno final: '))
+            balanco_gerencial(ticker, ano_ini, ano_fim)
 
         elif modo == 5:
             print('Encerrando o programa...')
