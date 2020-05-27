@@ -3,7 +3,7 @@ import time
 import sys
 from base_doc import busca_doc
 from base_doc import disponiveis
-from analise_demon import balanco_gerencial
+from analise_demon import analise_fundamentalista
 
 
 def animation():                                                                #funcao pronta stackoverflow para animacao durante o download
@@ -55,12 +55,12 @@ def demonstrativo(token, doc):                                                  
 
 
 def body(ticker, ano, demon, token):                #funcao base para buscar um demonstrativo e salvar em .csv
-    doc = busca_doc(ticker, ano)
+    doc = busca_doc(ticker, ano)                    #busca o numero do documento no banco de dados
     if doc == 0:
         print('Demonstrativo nao encontrado')
         return
-    dados = demonstrativo(token, doc)
-    aux = escreve_arquivo(ticker,ano,demon,dados)
+    dados = demonstrativo(token, doc)               #faz a busca do demonstrativo a utilizando a API
+    aux = escreve_arquivo(ticker,ano,demon,dados)   #salva o demonstrativo em um arquivo csv
     if aux == True:
         print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
     else:
@@ -69,16 +69,16 @@ def body(ticker, ano, demon, token):                #funcao base para buscar um 
 
 
 def busca_demon(ticker, ano, demon):                    #Busca de um relatorio a partir de ticker + ano + demonstrativo
-    if demon == 'dr' or demon == 'DR':
+    if demon == 'DR':
         body(ticker, ano, demon, 'tUgYN4_k8zKU')        #gera DR --> passa como parametro o codigo para execucao do projeto DR (tUgYN4_k8zKU)
 
-    elif demon == 'bpa' or demon == 'BPA':
+    elif demon == 'BPA':
         body(ticker, ano, demon, 'tStJKRY4WWN_')        #gera BPA
 
-    elif demon == 'bpp' or demon == 'BPP':
+    elif demon == 'BPP':
         body(ticker, ano, demon, 't3fX3x4OODkW')        #gera BPP
 
-    elif demon == 'dfc' or demon == 'DFC':
+    elif demon == 'DFC':
         body(ticker, ano, demon, 'tD1m6nCLOBRu')        #gera DFC
 
     else:
@@ -94,9 +94,9 @@ def busca_demon(ticker, ano, demon):                    #Busca de um relatorio a
 def conj_demon(ticker, ano_ini, ano_fim):                                 #Busca conjunto de demonstrativos, executando a busca individual para todos demons de 2015 a 2019
     for ano in range(ano_ini, ano_fim+1, 1):
         ano = str(ano)
-        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')
         body(ticker, ano, 'BPA', 'tStJKRY4WWN_')
         body(ticker, ano, 'BPP', 't3fX3x4OODkW')
+        body(ticker, ano, 'DR', 'tUgYN4_k8zKU')
         body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')
 
 
@@ -115,7 +115,7 @@ def main():
         print("________________________________ OUTRAS FUNCOES _________________________________")
         print()
         print('3- Listar empresas disponíveis para consulta')
-        print('4- Compilar demonstrativos')
+        print('4- Analise Fundamentalista (Balanço Gerencial + Analise de Liquidez)')
         print('5- Sair do programa')
         print("_________________________________________________________________________________")
         print()
@@ -148,7 +148,7 @@ def main():
             print('Periodo:')
             ano_ini = int(input('\tAno Inicial: '))
             ano_fim = int(input('\tAno final: '))
-            balanco_gerencial(ticker, ano_ini, ano_fim)
+            analise_fundamentalista(ticker, ano_ini, ano_fim)
 
         elif modo == 5:
             print('Encerrando o programa...')

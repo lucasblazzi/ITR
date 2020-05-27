@@ -69,3 +69,7 @@
   | Aplicação da macro |
   | :------: |
   ![Aplicação da macro](GIF/excel.gif)
+
+### Doações
+  Se o programa for útil, você pode contribuir para o pagamento do meu voucher para a certificação Security+
+  [![paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y7SXJE4L8GZXW&source=url)

@@ -3,16 +3,8 @@ import sqlite3
 conn = sqlite3.connect('demonstrativos.db')
 cur = conn.cursor()
 
-#sql = 'SELECT num_doc FROM Demonstrativos WHERE ticker = ? AND ano = ? '
-
-'''
 def busca_doc(ticker, ano):
-    for row in cur.execute(sql, (ticker, ano)):
-        return row[0]
-'''
-
-def busca_doc(ticker, ano):
-	cur.execute('SELECT num_doc FROM Demonstrativos WHERE ticker = ? AND ano = ? ', (ticker,ano, ))
+	cur.execute('SELECT num_doc FROM Demonstrativos WHERE ticker = ? AND ano = ? ', (ticker,ano, ))			#SELECT num_doc FROM Demonstrativos WHERE nome_empresa LIKE ? AND ano = ?
 	try:
 		return cur.fetchone()[0]
 	except TypeError:
