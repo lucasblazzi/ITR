@@ -62,6 +62,7 @@
   ![Aplicação da macro](GIF/excel.gif)
   
   4. **Análise Fundamentalista**
+     1. Executando a Análise Fundamentalista
   | Análise Fundamentalista |
   | :------: |
   ![Análise Fundamentalista](GIF/excel2.gif)
