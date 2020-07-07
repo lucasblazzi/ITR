@@ -2,20 +2,9 @@ import requests
 import time
 import sys
 from base_doc import busca_doc
+from base_doc import busca_doc_cvm
 from base_doc import disponiveis
 from analise_demon import analise_fundamentalista
-
-
-def animation():                                                                #funcao pronta stackoverflow para animacao durante o download
-    print("Buscando arquivo:")
-    #animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
-    animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
-    for i in range(len(animation)):
-        time.sleep(3)
-        sys.stdout.write("\r" + animation[i % len(animation)])
-        sys.stdout.flush()
-    print("\n")
-
 
 
 def escreve_arquivo(ticker,ano,demon,dados):                                    #salva a saida de dados no arquivo csv com nome ticker_ano_demon.csv
@@ -35,20 +24,32 @@ def demonstrativo(token, doc):                                                  
       "start_url": "https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento="+doc+"&CodigoTipoInstituicao=2",
     }
     r = requests.post('https://www.parsehub.com/api/v2/projects/'+token+'/run', data=params)
+    #print(r.text)
     run_token = str(r.text[15:27])                                              #salva o token do processo gerado ao executar o projeto
+    #print(run_token)
     print()
     print("Importando os dados...")
     print("(Aproximadamente 30 segundos)")
     print()
-    animation()
-    #time.sleep(30)
 
     params = {                                                                  #GET Request para pegar raw data do projeto iniciado anteriormente
       "api_key": "t14QhaR-0UJq",                                                #passa o token gerado anteriormente como parametro para buscar os dados gerados pela execucao do processo anterior
       "format": "csv",
     }
     demo = requests.get('https://www.parsehub.com/api/v2/runs/'+run_token+'/data', params=params)
+    #print(demo)
     #print(demo.text)
+    #print(demo.status_code)
+    aux_time = 0
+    print('Buscando...')
+    while demo.status_code == 404:              #so passa as informações quando a resposta for diferente de 404
+        demo = requests.get('https://www.parsehub.com/api/v2/runs/'+run_token+'/data', params=params)
+        time.sleep(2)
+        aux_time += 2
+        if aux_time % 10 == 0:      #print buscando de 10 em 10 segundos
+            print('Buscando...')
+
+
     dados = demo.text
     return dados
 
@@ -100,23 +101,56 @@ def conj_demon(ticker, ano_ini, ano_fim):                                 #Busca
         body(ticker, ano, 'DFC', 'tD1m6nCLOBRu')
 
 
+def demonstrativo_cvm(ticker, cod_cvm, ano, trim, versao, demon):
+    if demon == 'DR':
+        token = 'tUgYN4_k8zKU'
+    elif demon == 'BPA':
+        token = 'tStJKRY4WWN_'
+    elif demon == 'BPP':
+        token = 't3fX3x4OODkW'
+    elif demon == 'DFC':
+        token = 'tD1m6nCLOBRu'
+
+    doc = busca_doc_cvm(cod_cvm, ano, trim, versao)
+    if doc == 0:
+        print('Demonstrativo nao encontrado')
+        return
+
+    dados = demonstrativo(token, doc)               #faz a busca do demonstrativo a utilizando a API
+    aux = escreve_arquivo(ticker,ano,demon,dados)   #salva o demonstrativo em um arquivo csv
+    if aux == True:
+        print('Arquivo '+ticker+'_'+ano+'_'+demon+'.csv'' gerado com sucesso!!!')
+    else:
+        print("Falha na cópia do arquivo!!! / Arquivo ja existente")
+
+
+
 def main():
 
-    print("_________________________________________________________________________________")
-    print("                          DEMONSTRATIVOS FINANCEIROS B3                          ")
-    print("_________________________________________________________________________________")
+
+
+    print("_________________________________________________________________________________\n")
+    print("     _____   _________   _______           ______  ____   ____  ____    ____       ")
+    print("    |_   _| |  _   _  | |_   __ \        .' ___  ||_  _| |_  _||_   \  /   _|      ")
+    print("      | |   |_/ | | \_|   | |__) |      / .'   \_|  \ \   / /    |   \/   |        ")
+    print("      | |       | |       |  __ /       | |          \ \ / /     | |\  /| |        ")
+    print("     _| |_     _| |_     _| |  \ \_     \ `.___.'\    \ ' /     _| |_\/_| |_       ")
+    print("    |_____|(_)|_____|(_)|____| |___|(_)  `.____ .'     \_/     |_____||_____|      ")
+    print("                                                                           v2.0.1  ")
+    print("_________________________________________________________________________________  ")
     print()
     while True:
         print("__________________________ DOWNLOAD DE DEMONSTRATIVOS ___________________________")
         print()
         print('1- Demonstrativo individual por ano')
         print('2- Conjunto de demonstrativos (DR + BPA + BPP + DFC (2015-2019))')
+        print('3- Demonstrativo individual por codigo cvm')
         print()
         print("________________________________ OUTRAS FUNCOES _________________________________")
         print()
-        print('3- Listar empresas disponíveis para consulta')
-        print('4- Analise Fundamentalista (Balanço Gerencial + Analise de Liquidez)')
-        print('5- Sair do programa')
+        print('4- Listar empresas disponíveis para consulta')
+        print('5- Analise Fundamentalista (Balanço Gerencial + Analise de Liquidez)')
+        print('6- Sair do programa')
         print("_________________________________________________________________________________")
         print()
         modo = int(input('Opção:'))
@@ -140,17 +174,28 @@ def main():
             exit()
 
         elif modo == 3:
+            print("Para busca do codigo CVM:")
+            print("https://cvmweb.cvm.gov.br/SWB/Sistemas/SCW/CPublica/CiaAb/FormBuscaCiaAbOrdAlf.aspx\n")
+            ticker = input('Ticker: ')
+            cod_cvm = input('Codigo CVM: ')
+            ano = input('Ano: ')
+            trim = input('Trimestre: ')
+            versao = input('Versão: ')
+            demon = input('Demonstrativo: ')
+            demonstrativo_cvm(ticker, cod_cvm, ano, trim, versao, demon)
+
+        elif modo == 4:
             disponiveis()
             print('\n\n')
 
-        elif modo == 4:
+        elif modo == 5:
             ticker = input('Ticker: ')
             print('Periodo:')
             ano_ini = int(input('\tAno Inicial: '))
             ano_fim = int(input('\tAno final: '))
             analise_fundamentalista(ticker, ano_ini, ano_fim)
 
-        elif modo == 5:
+        elif modo == 6:
             print('Encerrando o programa...')
             exit()
 
