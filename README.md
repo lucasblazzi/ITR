@@ -64,4 +64,4 @@
   4. **Análise Fundamentalista**
   | Análise Fundamentalista |
   | :------: |
-  ![Aplicação da macro](GIF/excel2.gif)
+  ![Análise Fundamentalista](GIF/excel2.gif)
