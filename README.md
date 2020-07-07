@@ -66,4 +66,4 @@
 
   | Análise Fundamentalista |
   | :------: |
-  ![Análise Fundamentalista](GIF/excel.gif)
+  ![Análise Fundamentalista](GIF/excel2.gif)
