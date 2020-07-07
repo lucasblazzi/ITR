@@ -61,8 +61,9 @@
   | :------: |
   ![Aplicação da macro](GIF/excel.gif)
   
-  4. **Análise Fundamentalista**
-     1. Executando a Análise Fundamentalista
+  3. **Análise Fundamentalista**
+      1. O projeto acompanha macros do excel para uma formatação automática dos arquivos gerados
+
   | Análise Fundamentalista |
   | :------: |
-  ![Análise Fundamentalista](GIF/excel2.gif)
+  ![Análise Fundamentalista](GIF/excel.gif)
