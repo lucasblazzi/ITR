@@ -1,4 +1,4 @@
-## MyInvest
+## MyITR
  * O projeto foi desenvolvido para a busca de demonstrativos financeiros de empresas de capital aberto supervisionadas pela CVM.
  * Os demonstrativos disponíveis são: Demonstração de Resultado, Balanço Patrimonial Ativo, Balanço Patrimonial Passivo e Demonstrações de Fluxo de Caixa.
  * Como função adicional o programa possui uma função para implementação de planilhas baseadas na análise fundamentalista (Balanço Gerencial e Análise de Liquidez)
